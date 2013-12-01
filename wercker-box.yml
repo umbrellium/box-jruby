@@ -21,7 +21,8 @@ script: |
   cat /etc/environment
   ls -l /opt/
   echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
-  sudo gem install bundler -v "1.3"
+  ls -l /opt/jruby-1.7.8/bin
+  sudo /opt/jruby-1.7.8/bin/gem install bundler -v "1.3"
 
   echo "RAILS_ENV=test" | sudo tee -a /etc/environment
   echo "RACK_ENV=test" | sudo tee -a /etc/environment
