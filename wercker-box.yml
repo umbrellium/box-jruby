@@ -1,9 +1,9 @@
-name: torquebox
+name: jruby
 version: 0.0.1
 inherits: wercker/ubuntu12.04-webessentials@0.0.12
 type: main
 platform: ubuntu@12.04
-description: wercker box for torquebox
+description: wercker box that install jruby
 keywords:
   - jruby
   - ruby
@@ -16,8 +16,8 @@ script: |
   sudo apt-get remove ruby1.9.1
   cd /opt
   sudo curl -O http://jruby.org.s3.amazonaws.com/downloads/$JRUBY_VERSION/jruby-bin-$JRUBY_VERSION.tar.gz
-  sudo tar zxf jruby-bin-$JRUBY_VERSION.tar.gz
-  sudo sed -i'' 's/PATH=\"/PATH=\"\/opt\/jruby-${JRUBY_VERSION}\/bin:/g'
+  sudo tar zxvf jruby-bin-$JRUBY_VERSION.tar.gz
+  sudo sed -i'' 's/PATH=\"/PATH=\"\/opt\/jruby-${JRUBY_VERSION}\/bin:/g' /etc/environment
   echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
   sudo gem install bundler -v "1.3"
 
