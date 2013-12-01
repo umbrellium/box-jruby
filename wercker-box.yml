@@ -20,9 +20,8 @@ script: |
   sudo tar zxf jruby-bin-$JRUBY_VERSION.tar.gz
   sudo sed -i'' "s/PATH=\"/PATH=\"\/opt\/jruby-${JRUBY_VERSION}\/bin:/g" /etc/environment
   cat /etc/environment
-  which jruby
   echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
-  sudo jruby -S gem install bundler -v "1.3"
+  sudo /opt/jruby-1.7.8/bin/jruby -S gem install bundler -v "1.3"
 
   echo "RAILS_ENV=test" | sudo tee -a /etc/environment
   echo "RACK_ENV=test" | sudo tee -a /etc/environment
