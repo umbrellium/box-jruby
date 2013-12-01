@@ -18,7 +18,8 @@ script: |
   sudo curl -O http://jruby.org.s3.amazonaws.com/downloads/$JRUBY_VERSION/jruby-bin-$JRUBY_VERSION.tar.gz
   sudo tar zxf jruby-bin-$JRUBY_VERSION.tar.gz
   sudo sed -i'' 's/PATH=\"/PATH=\"\/opt\/jruby-${JRUBY_VERSION}\/bin:/g' /etc/environment
-  source /etc/environment
+  cat /etc/environment
+  ls -l /opt/
   echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
   sudo /opt/jruby-$JRUBY_VERSION/bin/gem install bundler -v "1.3"
 
