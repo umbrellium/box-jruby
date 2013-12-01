@@ -3,7 +3,7 @@ version: 0.0.1
 inherits: wercker/ubuntu12.04-webessentials@0.0.12
 type: main
 platform: ubuntu@12.04
-description: wercker box that install jruby
+description: Experimental wercker box that installs jruby
 keywords:
   - jruby
   - ruby
@@ -19,9 +19,8 @@ script: |
   sudo curl -O http://jruby.org.s3.amazonaws.com/downloads/$JRUBY_VERSION/jruby-bin-$JRUBY_VERSION.tar.gz
   sudo tar zxf jruby-bin-$JRUBY_VERSION.tar.gz
   sudo sed -i'' "s/PATH=\"/PATH=\"\/opt\/jruby-${JRUBY_VERSION}\/bin:/g" /etc/environment
-  cat /etc/environment
   echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
-  sudo /opt/jruby-1.7.8/bin/jruby -S gem install bundler -v "1.3"
+  sudo /opt/jruby-${JRUBY_VERSION}/bin/jruby -S gem install bundler -v "1.3"
 
   echo "RAILS_ENV=test" | sudo tee -a /etc/environment
   echo "RACK_ENV=test" | sudo tee -a /etc/environment
