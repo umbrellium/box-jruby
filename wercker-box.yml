@@ -11,6 +11,7 @@ packages:
   - jruby@1.7.8
 script: |
   export JRUBY_VERSION=1.7.8
+  export JRUBY_HOME=/opt/jruby-$JRUBY_VERSION
   sudo apt-get update
   sudo apt-get install curl python-software-properties
   sudo apt-get remove ruby1.9.1
@@ -21,8 +22,7 @@ script: |
   cat /etc/environment
   ls -l /opt/
   echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
-  ls -l /opt/jruby-1.7.8/bin
-  sudo /opt/jruby-1.7.8/bin/gem install bundler -v "1.3"
+  sudo /opt/jruby-${JRUBY_VERSION}/bin/gem install bundler -v "1.3"
 
   echo "RAILS_ENV=test" | sudo tee -a /etc/environment
   echo "RACK_ENV=test" | sudo tee -a /etc/environment
