@@ -28,6 +28,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Changelog
 
+## 0.0.5
+
+* Updated README (required version bump)
+
 ## 0.0.4
 
 * Update JRuby to 1.7.11
