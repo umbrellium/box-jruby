@@ -3,10 +3,12 @@ version: 0.0.4
 inherits: wercker/ubuntu12.04-webessentials@0.0.12
 type: main
 platform: ubuntu@12.04
-description: Experimental wercker box that installs jruby
+description: Experimental wercker box that installs JRuby 1.7.11 and Bundler 1.5.3
 keywords:
   - jruby
   - ruby
+  - jruby-1.7.11
+  - bundler
 packages:
   - jruby@1.7.11
 script: |
