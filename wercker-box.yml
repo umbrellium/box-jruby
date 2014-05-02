@@ -1,14 +1,15 @@
 name: jruby
-version: 0.0.6
+version: 0.0.7
 inherits: wercker/ubuntu12.04-webessentials@1.0.1
 type: main
 platform: ubuntu@12.04
-description: Experimental wercker box that installs JRuby 1.7.11 and Bundler 1.5.3
+description: Experimental wercker box that installs JRuby 1.7.11 and Bundler 1.5.3, plus node.js 0.10.26
 keywords:
   - jruby
   - ruby
   - jruby-1.7.11
   - bundler
+  - nodejs
 packages:
   - jruby@1.7.11
 script: |
@@ -23,6 +24,21 @@ script: |
   sudo sed -i'' "s/PATH=\"/PATH=\"\/opt\/jruby-${JRUBY_VERSION}\/bin:/g" /etc/environment
   echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
   sudo /opt/jruby-${JRUBY_VERSION}/bin/jruby -S gem install bundler -v "1.5.3"
+
+  export NODEVERSION=0.10.26
+  sudo apt-get install wget build-essential
+  cd $HOME
+  mkdir nodeinstall
+  cd nodeinstall
+  wget http://nodejs.org/dist/v$NODEVERSION/node-v$NODEVERSION.tar.gz
+  tar xzvf node-v$NODEVERSION.tar.gz
+  cd node-v$NODEVERSION
+  ./configure
+  make
+  sudo make install
+  cd $HOME
+  rm -fr nodeinstall
+  node -v
 
   echo "RAILS_ENV=test" | sudo tee -a /etc/environment
   echo "RACK_ENV=test" | sudo tee -a /etc/environment
