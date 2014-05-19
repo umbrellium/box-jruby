@@ -1,7 +1,7 @@
 box-jruby
 =============
 
-A Wercker box with JRuby 1.7.11 and Bundler 1.5.3 installed.
+A Wercker box with JRuby 1.7.11 and Bundler 1.6.2 installed.
 
 # License
 
@@ -27,6 +27,10 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Changelog
+
+## 0.0.8
+
+Updated bundler to 1.6.2
 
 ## 0.0.5
 

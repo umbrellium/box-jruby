@@ -1,9 +1,9 @@
 name: jruby
-version: 0.0.7
+version: 0.0.8
 inherits: wercker/ubuntu12.04-webessentials@1.0.1
 type: main
 platform: ubuntu@12.04
-description: Experimental wercker box that installs JRuby 1.7.11 and Bundler 1.5.3, plus node.js 0.10.26
+description: Experimental wercker box that installs JRuby 1.7.11 and Bundler 1.6.2, plus node.js 0.10.26
 keywords:
   - jruby
   - ruby
@@ -23,7 +23,7 @@ script: |
   sudo tar zxf jruby-bin-$JRUBY_VERSION.tar.gz
   sudo sed -i'' "s/PATH=\"/PATH=\"\/opt\/jruby-${JRUBY_VERSION}\/bin:/g" /etc/environment
   echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
-  sudo /opt/jruby-${JRUBY_VERSION}/bin/jruby -S gem install bundler -v "1.5.3"
+  sudo /opt/jruby-${JRUBY_VERSION}/bin/jruby -S gem install bundler -v "1.6.2"
 
   export NODEVERSION=0.10.26
   sudo apt-get install wget build-essential
