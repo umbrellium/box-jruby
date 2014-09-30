@@ -1,5 +1,5 @@
 name: jruby
-version: 0.0.8
+version: 0.0.9
 inherits: wercker/ubuntu12.04-webessentials@1.0.1
 type: main
 platform: ubuntu@12.04
@@ -13,11 +13,10 @@ keywords:
 packages:
   - jruby@1.7.11
 script: |
-  export JRUBY_VERSION=1.7.11
+  export JRUBY_VERSION=1.7.12
   export JRUBY_HOME=/opt/jruby-$JRUBY_VERSION
   sudo apt-get update
   sudo apt-get install curl python-software-properties
-  sudo apt-get remove ruby1.9.1
   cd /opt
   sudo curl -O http://jruby.org.s3.amazonaws.com/downloads/$JRUBY_VERSION/jruby-bin-$JRUBY_VERSION.tar.gz
   sudo tar zxf jruby-bin-$JRUBY_VERSION.tar.gz
