@@ -1,17 +1,17 @@
 name: jruby
-version: 0.0.9
+version: 0.0.10
 inherits: wercker/ubuntu12.04-webessentials@1.0.1
 type: main
 platform: ubuntu@12.04
-description: Experimental wercker box that installs JRuby 1.7.11 and Bundler 1.6.2, plus node.js 0.10.26
+description: Experimental wercker box that installs JRuby 1.7.12 and Bundler 1.6.2, plus node.js 0.10.26
 keywords:
   - jruby
   - ruby
-  - jruby-1.7.11
+  - jruby-1.7.12
   - bundler
   - nodejs
 packages:
-  - jruby@1.7.11
+  - jruby@1.7.12
 script: |
   export JRUBY_VERSION=1.7.12
   export JRUBY_HOME=/opt/jruby-$JRUBY_VERSION
